@@ -1,0 +1,32 @@
+/*
+Desafio: Encontre a única string que não tem um par correspondente em uma lista de strings.
+
+Descrição: Dada uma lista de strings, cada uma aparecendo duas vezes, exceto por uma string que aparece apenas uma vez, escreva um programa que encontre essa string única. A lista pode conter milhares de strings e as strings podem ter comprimentos diferentes.
+
+Exemplo:
+
+Input: ["a", "b", "c", "a", "b"]
+Output: "c"
+
+Explicação: A string "c" não tem um par correspondente na lista.
+*/
+
+//const collect = required()
+
+function teste(arr){
+
+  let counts = {};
+  arr.forEach((count) => {
+    counts[count] = (counts[count] || 0) + 1;
+  });
+
+
+  const diver = Math.min(...Object.values(counts));
+  const num = Object.keys(counts).find((key) => {
+  return counts[key] === diver;
+  });
+  return num;
+
+}
+
+console.log(teste(["a", "b", "c", "a", "b"]));
